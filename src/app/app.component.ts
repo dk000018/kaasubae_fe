@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { DailydayComponent } from './components/dailyday/dailyday.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [CalendarComponent, DailydayComponent],
 })
 export class AppComponent {
-  title = 'kaasubaefrontend';
+  selectedDate: string | null = null;
+
+  onDateSelected(date: string) {
+    this.selectedDate = date;
+  }
 }
