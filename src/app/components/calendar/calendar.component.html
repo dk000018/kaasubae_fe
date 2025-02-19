@@ -1,51 +1,48 @@
 <div class="w-full h-screen p-5 flex flex-col items-center justify-center">
-  <!-- Weekdays Row -->
   <div class="flex items-center space-x-24 mb-4">
-    <div class="flex items-center justify-center space-x-4">
-      <!-- Previous Month -->
-      <button
-        (click)="changeMonth(-1)"
-        class="flex items-center justify-center text-5xl bg-gray-300 rounded-md hover:bg-gray-400 px-4 pb-2"
-      >
-        &lsaquo;
-      </button>
-    </div>
+    <button
+      (click)="changeMonth(-1)"
+      class="text-xl bg-blue-500 text-white rounded-md hover:bg-blue-600 px-4 py-1"
+    >
+      Previous
+    </button>
 
-    <!-- Current Month & Year -->
     <h2 class="text-2xl font-semibold text-center">
-      {{ getMonthName() }} {{ currentYear }}
+      {{ getMonthName() }} {{ currentYear() }}
     </h2>
 
-    <!-- Next Month -->
-
-    <div class="flex items-center justify-center space-x-4">
-      <button
-        (click)="changeMonth(1)"
-        class="flex items-center justify-center text-5xl bg-gray-300 rounded-md hover:bg-gray-400 px-4 pb-2"
-      >
-        &rsaquo;
-      </button>
-    </div>
+    <button
+      (click)="changeMonth(1)"
+      class="text-xl bg-blue-500 text-white rounded-md hover:bg-blue-600 px-4 py-1"
+    >
+      Next
+    </button>
   </div>
 
-  <div class="grid grid-cols-7 w-full bg-gray-200 p-2 rounded-md text-center">
+  <div class="grid grid-cols-7 w-full bg-blue-500 text-white p-2 text-center">
     <div *ngFor="let day of daysOfWeek" class="p-2 font-semibold">
       {{ day }}
     </div>
   </div>
 
-  <!-- Calendar Grid -->
   <div class="grid grid-cols-7 w-full border border-gray-200">
     <div
-      *ngFor="let day of calendarDays"
+      *ngFor="let day of calendarDays()"
       (click)="selectDate(day)"
-      class="aspect-square flex items-center justify-center border border-gray-200 text-lg cursor-pointer hover:bg-blue-500 hover:text-white"
+      class="p-8 flex items-center justify-center border border-gray-200 text-lg cursor-pointer hover:bg-blue-500 hover:text-white"
       [class.bg-gray-50]="day === null"
-      [class.bg-blue-500]="selectedDate === day"
-      [class.text-white]="selectedDate === day"
+      [class.p-12]="day === null"
+      [class.bg-blue-500]="selectedDate() === day"
+      [class.text-white]="selectedDate() === day"
       [class.hover:bg-gray-50]="day === null"
     >
-      {{ day ? day : "" }}
+      <div>
+        {{ day ? day : "" }}
+      </div>
+
+      <span *ngIf="day === currentDateDD" class="ml-2 text-sm font-semibold"
+        >⭐</span
+      >
     </div>
   </div>
 </div>
