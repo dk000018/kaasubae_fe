@@ -19,7 +19,7 @@
     </button>
   </div>
 
-  <div class="grid grid-cols-7 w-full bg-blue-500 text-white p-2 text-center">
+  <div class="grid grid-cols-7 w-full bg-blue-600 text-white p-2 text-center">
     <div *ngFor="let day of daysOfWeek" class="p-2 font-semibold">
       {{ day }}
     </div>
@@ -39,10 +39,6 @@
       <div>
         {{ day ? day : "" }}
       </div>
-
-      <span *ngIf="day === currentDateDD" class="ml-2 text-sm font-semibold"
-        >⭐</span
-      >
     </div>
   </div>
 </div>

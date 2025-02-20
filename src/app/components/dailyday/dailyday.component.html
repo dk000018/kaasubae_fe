@@ -1,9 +1,13 @@
-<div class="w-full h-screen flex flex-col items-center justify-center">
+<div
+  class="w-full h-screen flex flex-col items-center justify-center"
+  *ngIf="selectedDate; else noDate"
+>
   <h2 class="text-xl font-bold">Selected Date:</h2>
-  <p class="text-2xl mt-2" *ngIf="selectedDate; else noDate">
+  <p class="text-2xl mt-2">
     {{ selectedDate }}
   </p>
-  <ng-template #noDate>
-    <p class="text-gray-500">No date selected</p>
-  </ng-template>
 </div>
+
+<ng-template #noDate>
+  <div class="mt-20 p-4">This Month's Summary</div>
+</ng-template>

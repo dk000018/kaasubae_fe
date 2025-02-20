@@ -11,7 +11,7 @@ import {
   selector: 'app-calendar',
   standalone: true,
   templateUrl: './calendar.component.html',
-  imports: [NgFor, NgIf],
+  imports: [NgFor],
 })
 export class CalendarComponent {
   daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
