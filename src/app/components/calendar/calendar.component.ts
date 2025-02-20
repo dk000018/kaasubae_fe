@@ -23,6 +23,7 @@ export class CalendarComponent {
 
   @Output() dateSelected = new EventEmitter<string>();
   @Output() monthSelected = new EventEmitter<string>();
+  @Output() yearSelected = new EventEmitter<string>();
 
   calendarDays = computed(() => this.generateCalendar());
 
@@ -95,6 +96,8 @@ export class CalendarComponent {
     ];
     const currMonth = monthNames[this.currentMonthIndex()];
     this.monthSelected.emit(currMonth);
+    console.log(this.currentYear().toString());
+    this.yearSelected.emit(this.currentYear().toString());
     return currMonth;
   }
 }

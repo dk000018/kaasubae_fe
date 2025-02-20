@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 export class AppComponent {
   selectedDate = signal<string | null>(null);
   selectedMonth = signal<string | null>(null);
+  selectedYear = signal<string | null>(null);
 
   onDateSelected(date: string) {
     this.selectedDate.set(date);
@@ -19,5 +20,9 @@ export class AppComponent {
 
   onMonthSelected(month: string) {
     this.selectedMonth.set(month);
+  }
+
+  onYearSelected(year: string) {
+    this.selectedYear.set(year);
   }
 }

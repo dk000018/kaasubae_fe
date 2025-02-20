@@ -4,12 +4,14 @@
     <app-calendar
       (dateSelected)="onDateSelected($event)"
       (monthSelected)="onMonthSelected($event)"
+      (yearSelected)="onYearSelected($event)"
     ></app-calendar>
   </div>
   <div class="w-1/2">
     <app-dailyday
       [selectedDate]="selectedDate()"
       [selectedMonth]="selectedMonth()"
+      [selectedYear]="selectedYear()"
     ></app-dailyday>
   </div>
 </div>
