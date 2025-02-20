@@ -16,18 +16,17 @@ import {
 export class CalendarComponent {
   daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   currentDate = new Date();
-  currentDateDD = new Date().getDate();
 
   currentMonthIndex = signal(this.currentDate.getMonth());
   currentYear = signal(this.currentDate.getFullYear());
   selectedDate = signal<number | null>(null);
 
   @Output() dateSelected = new EventEmitter<string>();
+  @Output() monthSelected = new EventEmitter<string>();
 
   calendarDays = computed(() => this.generateCalendar());
 
   generateCalendar(): (number | null)[] {
-    console.log('currentDateDD', this.currentDateDD);
     const firstDayIndex = new Date(
       this.currentYear(),
       this.currentMonthIndex(),
@@ -94,6 +93,8 @@ export class CalendarComponent {
       'November',
       'December',
     ];
-    return monthNames[this.currentMonthIndex()];
+    const currMonth = monthNames[this.currentMonthIndex()];
+    this.monthSelected.emit(currMonth);
+    return currMonth;
   }
 }

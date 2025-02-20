@@ -1,9 +1,15 @@
 <app-navbar></app-navbar>
 <div class="flex">
   <div class="w-1/2 border-r border-r-gray-200">
-    <app-calendar (dateSelected)="onDateSelected($event)"></app-calendar>
+    <app-calendar
+      (dateSelected)="onDateSelected($event)"
+      (monthSelected)="onMonthSelected($event)"
+    ></app-calendar>
   </div>
   <div class="w-1/2">
-    <app-dailyday [selectedDate]="selectedDate()"></app-dailyday>
+    <app-dailyday
+      [selectedDate]="selectedDate()"
+      [selectedMonth]="selectedMonth()"
+    ></app-dailyday>
   </div>
 </div>
