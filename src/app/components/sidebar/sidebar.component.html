@@ -1,1 +1,27 @@
-<p>sidebar works!</p>
+<section
+  class="h-screen bg-slate-900 text-white flex flex-col justify-between py-4"
+>
+  <div>
+    <a href="" class="text-3xl font-semibold px-6">KaaSubae</a>
+  </div>
+
+  <div class="text-xl space-y-6 flex flex-col">
+    @for (item of menuItems; track $index) {
+    <a href="{{ item.path }}" class="hover:bg-slate-800 py-2 px-6">{{
+      item.name
+    }}</a>
+    }
+  </div>
+
+  <div class="space-y-6 text-center">
+    <div class="mx-6">
+      <button class="py-1 w-full bg-red-600 hover:bg-red-700 rounded-md">
+        Log out
+      </button>
+    </div>
+    <p class="text-sm">
+      © 2025 KaaSubae. <br />
+      All rights reserved.
+    </p>
+  </div>
+</section>
