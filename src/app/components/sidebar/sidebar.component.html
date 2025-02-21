@@ -7,9 +7,13 @@
 
   <div class="text-xl space-y-6 flex flex-col">
     @for (item of menuItems; track $index) {
-    <a href="{{ item.path }}" class="hover:bg-slate-800 py-2 px-6">{{
-      item.name
-    }}</a>
+    <a
+      routerLink="{{ item.path }}"
+      class="hover:bg-slate-700 py-2 px-6"
+      routerLinkActive="bg-slate-700"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >{{ item.name }}</a
+    >
     }
   </div>
 
