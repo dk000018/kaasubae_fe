@@ -7,7 +7,9 @@
   @for (income of data.breakdown; track income) {
   <div class="flex items-center justify-between">
     <p class="">{{ income.type }}</p>
-    <p class="font-medium">${{ addCommas(income.amount) }}</p>
+    <p class="font-medium {{ getTextColor(data.title) }}">
+      ${{ addCommas(income.amount) }}
+    </p>
   </div>
   }
 </div>

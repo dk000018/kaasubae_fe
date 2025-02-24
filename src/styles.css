@@ -5,13 +5,19 @@
 }
 
 .earnings {
-  @apply text-green-400;
+  @apply text-green-400 font-mono;
 }
 
 .spends {
-  @apply text-[#FF4433]; /* Red-Orange from https://htmlcolorcodes.com/colors/shades-of-red/ */
+  @apply text-[#FF4433] font-mono; /* Red-Orange from https://htmlcolorcodes.com/colors/shades-of-red/ */
 }
 
 .savings {
-  @apply text-orange-400;
+  @apply text-orange-400 font-mono;
+}
+
+.lato {
+  font-family: "Lato", serif;
+  font-weight: 400;
+  font-style: normal;
 }
