@@ -1,8 +1,10 @@
 import { Component, signal } from '@angular/core';
+import { addCommas } from '../../utils/commonFunctions';
+import { CardComponent } from '../../components/ui/card/card.component';
 
 @Component({
   selector: 'app-summary',
-  imports: [],
+  imports: [CardComponent],
   templateUrl: './summary.component.html',
 })
 export class SummaryComponent {
@@ -40,7 +42,8 @@ export class SummaryComponent {
   }
 
   monthlySummaryData = {
-    incomes: {
+    earnings: {
+      title: 'Earnings',
       total: 21500,
       breakdown: [
         { type: 'Salary', amount: 10000 },
@@ -51,6 +54,7 @@ export class SummaryComponent {
       ],
     },
     spends: {
+      title: 'Spends',
       total: 7500,
       breakdown: [
         { type: 'Rent', amount: 3000 },
@@ -61,6 +65,7 @@ export class SummaryComponent {
       ],
     },
     savings: {
+      title: 'Savings',
       total: 5000,
       breakdown: [
         { type: 'Emergency Fund', amount: 2000 },
@@ -73,7 +78,5 @@ export class SummaryComponent {
     balance: 5000,
   };
 
-  addCommas(num: number): string {
-    return num.toLocaleString('en-US');
-  }
+  addCommas = addCommas;
 }

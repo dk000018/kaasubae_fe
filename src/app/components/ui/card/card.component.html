@@ -1,0 +1,13 @@
+<div class="p-6 text-xl space-y-4 primary text-white rounded">
+  <div class="flex items-center justify-between text-2xl font-semibold">
+    <h1 class="">{{ data.title }}</h1>
+    <p class=" {{ getTextColor(data.title) }}">${{ addCommas(data.total) }}</p>
+  </div>
+
+  @for (income of data.breakdown; track income) {
+  <div class="flex items-center justify-between">
+    <p class="">{{ income.type }}</p>
+    <p class="font-medium">${{ addCommas(income.amount) }}</p>
+  </div>
+  }
+</div>
