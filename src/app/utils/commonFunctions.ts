@@ -1,14 +1,10 @@
-export function addCommas(num: number): string {
-  return num.toLocaleString('en-US');
-}
-
 export function getTextColor(title: string): string {
-  switch (title) {
-    case 'Earnings':
+  switch (title.toLowerCase()) {
+    case 'earnings':
       return 'earnings';
-    case 'Spends':
+    case 'spends':
       return 'spends';
-    case 'Savings':
+    case 'savings':
       return 'savings';
     default:
       return 'text-gray-500'; // Default case for Savings or others

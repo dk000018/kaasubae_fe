@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { getTextColor } from '../../../utils/commonFunctions';
 
 @Component({
-  selector: 'app-card',
+  selector: 'app-table',
   imports: [],
-  templateUrl: './card.component.html',
+  templateUrl: './table.component.html',
 })
-export class CardComponent {
+export class TableComponent {
   @Input() data: any;
 
   getTextColor = getTextColor;

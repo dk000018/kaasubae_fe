@@ -1,20 +1,27 @@
 import { Component } from '@angular/core';
+import { TableComponent } from '../../components/ui/table/table.component';
 
 @Component({
   selector: 'app-transactions',
-  imports: [],
+  imports: [TableComponent],
   templateUrl: './transactions.component.html',
 })
 export class TransactionsComponent {
-  transactions = [
-    { name: 'Salary', amount: 5000, category: 'Income' },
-    { name: 'Freelance', amount: 1200, category: 'Income' },
-    { name: 'Rent', amount: -1500, category: 'Expense' },
-    { name: 'Groceries', amount: -300, category: 'Expense' },
-    { name: 'Savings', amount: 2000, category: 'Savings' },
-  ];
+  data = {
+    headers: ['name', 'amount', 'notes', 'actions'],
+    transactions: [
+      {
+        name: 'Salary',
+        amount: '₹1200',
+        category: 'earnings',
+        notes: 'The quick brown fox jumps over the lazy dog.',
+      },
+      { name: 'Freelance', amount: '₹1200', category: 'earnings' },
+      { name: 'Rent', amount: '₹1200', category: 'spends' },
+      { name: 'Groceries', amount: '₹1200', category: 'spends' },
+      { name: 'Savings', amount: '₹1200', category: 'savings' },
+    ],
+  };
 
-  addCommas(value: number): string {
-    return value.toLocaleString(); // Adds commas
-  }
+  
 }

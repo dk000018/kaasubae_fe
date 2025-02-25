@@ -1,0 +1,36 @@
+<table class="w-full text-left primary">
+  <thead>
+    <tr class="bg-slate-950 text-white">
+      @for (header of data.headers; track header) {
+      <th class="border border-slate-500 px-4 py-2 capitalize">
+        {{ header }}
+      </th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @for (transaction of data.transactions; track transaction) {
+    <tr>
+      @for (header of data.headers; track header) {
+      <td class="border border-slate-500 px-4 py-2 capitalize">
+        @if (header === 'actions') {
+        <div class="flex space-x-2">
+          <button class="text-sky-500">Edit</button>
+          <button class="spends lato">Delete</button>
+        </div>
+        }@else if (header.toLowerCase() === 'amount') {
+        <div class="{{ getTextColor(transaction.category) }}">
+          {{ transaction[header] }}
+        </div>
+        } @else {
+        <div>
+          {{ transaction[header] ?? "" }}
+        </div>
+
+        }
+      </td>
+      }
+    </tr>
+    }
+  </tbody>
+</table>
