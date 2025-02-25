@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { TableComponent } from '../../components/ui/table/table.component';
+import { ModalComponent } from '../../components/ui/modal/modal.component';
 
 @Component({
   selector: 'app-transactions',
-  imports: [TableComponent],
+  imports: [TableComponent, ModalComponent],
   templateUrl: './transactions.component.html',
 })
 export class TransactionsComponent {
@@ -23,5 +24,13 @@ export class TransactionsComponent {
     ],
   };
 
-  
+  isModalOpen = false;
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
 }
