@@ -76,6 +76,7 @@ export class SummaryComponent {
       ],
     },
     balance: 5000,
+    currency: '₹',
   };
 
   addCommas = addCommas;

@@ -15,7 +15,10 @@
       class="primary p-4 flex items-center justify-between w-1/4 font-medium text-xl rounded"
     >
       <h1 class="">Balance Available</h1>
-      <p class="earnings">${{ addCommas(monthlySummaryData.balance) }}</p>
+      <p class="earnings">
+        {{ monthlySummaryData.currency
+        }}{{ addCommas(monthlySummaryData.balance) }}
+      </p>
     </div>
   </div>
 
