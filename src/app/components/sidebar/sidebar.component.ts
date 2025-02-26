@@ -10,7 +10,7 @@ export class SidebarComponent {
   menuItems = [
     { name: 'Summary', path: '' },
     { name: 'Transactions', path: 'transactions' },
-    { name: 'Mandates', path: 'mandates' },
+    { name: 'Automations', path: 'automations' },
     { name: 'Loans', path: 'loans' },
     { name: 'Investments', path: 'investments' },
     { name: 'Analytics', path: 'analytics' },

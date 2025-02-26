@@ -49,6 +49,33 @@ export class TransactionsComponent {
 
   categoryOptions = ['earnings', 'spends', 'savings'];
 
+  selectedDate: string = this.getFormattedDate(new Date()); // Set default to today
+
+  // Move to the previous day
+  prevDay() {
+    const newDate = new Date(this.selectedDate);
+    newDate.setDate(newDate.getDate() - 1);
+    this.selectedDate = this.getFormattedDate(newDate);
+  }
+
+  // Move to the next day
+  nextDay() {
+    const newDate = new Date(this.selectedDate);
+    newDate.setDate(newDate.getDate() + 1);
+    this.selectedDate = this.getFormattedDate(newDate);
+  }
+
+  // Update the selected date when user picks a new one
+  onDateChange(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.selectedDate = inputElement.value;
+  }
+
+  // Format date to 'YYYY-MM-DD' (compatible with date picker)
+  private getFormattedDate(date: Date): string {
+    return date.toISOString().split('T')[0];
+  }
+
   // Fix form initialization: Use new FormControl()
   formData: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
