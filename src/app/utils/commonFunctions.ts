@@ -7,6 +7,6 @@ export function getTextColor(title: string): string {
     case 'savings':
       return 'savings';
     default:
-      return 'text-gray-500'; // Default case for Savings or others
+      return 'text-slate-200'; // Default case for Savings or others
   }
 }

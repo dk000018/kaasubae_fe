@@ -17,6 +17,7 @@ import {
 export class AutomationsComponent {
   columns = [
     { title: 'Name', dataIndex: 'name' },
+    { title: 'Category', dataIndex: 'category' },
     { title: 'Amount', dataIndex: 'amount' },
     { title: 'Date', dataIndex: 'date' },
     { title: 'Actions', dataIndex: 'actions' },

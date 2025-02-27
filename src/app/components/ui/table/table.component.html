@@ -1,35 +1,43 @@
-<table class="w-full text-left primary">
-  <thead>
-    <tr class="bg-slate-950 text-white">
-      @for (col of columns; track col) {
-      <th class="border border-slate-500 px-4 py-2 capitalize">
-        {{ col.title }}
-      </th>
-      }
-    </tr>
-  </thead>
-  <tbody>
-    @for (row of data; track row) {
-    <tr>
-      @for (col of columns; track col) {
-      <td class="border border-slate-500 px-4 py-2 capitalize">
-        @if (col.dataIndex === 'actions') {
-        <div class="flex space-x-2">
-          <button class="text-blue-400">Edit</button>
-          <button class="text-red-400">Delete</button>
-        </div>
-        } @else if (col.dataIndex.toLowerCase() === 'amount') {
-        <div class="{{ getTextColor(row.category) }}">
-          {{ row[col.dataIndex] }}
-        </div>
-        } @else {
-        <div>
-          {{ row[col.dataIndex] ?? "" }}
-        </div>
+<div class="overflow-auto">
+  <table class="w-full text-left min-w-max">
+    <thead>
+      <tr class="primary">
+        @for (col of columns; track col) {
+        <th
+          class="px-4 py-2 capitalize"
+          class="{{
+            col.dataIndex === 'actions' ? 'sticky right-0 primary' : ''
+          }}"
+        >
+          {{ col.title }}
+        </th>
         }
-      </td>
+      </tr>
+    </thead>
+    <tbody>
+      @for (row of data; track row) {
+      <tr>
+        @for (col of columns; track col) {
+        <td
+          class="px-4 py-2 capitalize border-b border-slate-300"
+          class="{{
+            col.dataIndex === 'actions' ? 'sticky right-0 bg-white w-10' : ''
+          }}"
+        >
+          @if (col.dataIndex === "actions") {
+          <div class="flex gap-4">
+            <button class="text-blue-500 cursor-pointer">Edit</button>
+            <button class="text-red-500 cursor-pointer">Delete</button>
+          </div>
+          } @else {
+          <div>
+            {{ row[col.dataIndex] ?? "" }}
+          </div>
+          }
+        </td>
+        }
+      </tr>
       }
-    </tr>
-    }
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>

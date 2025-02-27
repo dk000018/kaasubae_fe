@@ -16,6 +16,7 @@ import {
 export class TransactionsComponent {
   columns = [
     { title: 'Name', dataIndex: 'name' },
+    { title: 'Category', dataIndex: 'category' },
     { title: 'Amount', dataIndex: 'amount' },
     { title: 'Tags', dataIndex: 'tags' },
     { title: 'Notes', dataIndex: 'notes' },
