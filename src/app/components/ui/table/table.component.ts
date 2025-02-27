@@ -8,6 +8,7 @@ import { getTextColor } from '../../../utils/commonFunctions';
 })
 export class TableComponent {
   @Input() data: any;
+  @Input() columns: any;
 
   getTextColor = getTextColor;
 }

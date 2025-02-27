@@ -15,37 +15,41 @@ import {
   templateUrl: './automations.component.html',
 })
 export class AutomationsComponent {
-  data = {
-    headers: ['name', 'amount', 'date', 'actions'],
-    transactions: [
-      { name: 'Salary', amount: '₹50,000', category: 'earnings', date: '1st' },
-      {
-        name: 'Freelance Project',
-        amount: '₹15,000',
-        category: 'earnings',
-        date: '10th',
-      },
-      { name: 'Groceries', amount: '₹5,000', category: 'spends', date: '5th' },
-      {
-        name: 'Dining Out',
-        amount: '₹2,500',
-        category: 'spends',
-        date: '15th',
-      },
-      {
-        name: 'Index Fund SIP',
-        amount: '₹3,000',
-        category: 'savings',
-        date: '20th',
-      },
-      {
-        name: 'Emergency Fund',
-        amount: '₹5,000',
-        category: 'savings',
-        date: '25th',
-      },
-    ],
-  };
+  columns = [
+    { title: 'Name', dataIndex: 'name' },
+    { title: 'Amount', dataIndex: 'amount' },
+    { title: 'Date', dataIndex: 'date' },
+    { title: 'Actions', dataIndex: 'actions' },
+  ];
+
+  data = [
+    { name: 'Salary', amount: '₹50,000', category: 'earnings', date: '1st' },
+    {
+      name: 'Freelance Project',
+      amount: '₹15,000',
+      category: 'earnings',
+      date: '10th',
+    },
+    { name: 'Groceries', amount: '₹5,000', category: 'spends', date: '5th' },
+    {
+      name: 'Dining Out',
+      amount: '₹2,500',
+      category: 'spends',
+      date: '15th',
+    },
+    {
+      name: 'Index Fund SIP',
+      amount: '₹3,000',
+      category: 'savings',
+      date: '20th',
+    },
+    {
+      name: 'Emergency Fund',
+      amount: '₹5,000',
+      category: 'savings',
+      date: '25th',
+    },
+  ];
 
   categoryOptions = ['earnings', 'spends', 'savings'];
   days = Array.from({ length: 31 }, (_, i) => i + 1); // Days 1-31

@@ -14,27 +14,32 @@ import {
   templateUrl: './transactions.component.html',
 })
 export class TransactionsComponent {
-  data = {
-    headers: ['name', 'amount', 'tags', 'notes', 'actions'],
-    transactions: [
-      {
-        name: 'Salary',
-        amount: '₹1200',
-        category: 'earnings',
-        notes: 'The quick brown fox jumps over the lazy dog.',
-        tags: 'Main Income',
-      },
-      {
-        name: 'Freelance',
-        amount: '₹1200',
-        category: 'earnings',
-        tags: 'Side Income',
-      },
-      { name: 'Rent', amount: '₹1200', category: 'spends', tags: 'Rent' },
-      { name: 'Groceries', amount: '₹1200', category: 'spends', tags: 'Food' },
-      { name: 'Savings', amount: '₹1200', category: 'savings', tags: 'Gold' },
-    ],
-  };
+  columns = [
+    { title: 'Name', dataIndex: 'name' },
+    { title: 'Amount', dataIndex: 'amount' },
+    { title: 'Tags', dataIndex: 'tags' },
+    { title: 'Notes', dataIndex: 'notes' },
+    { title: 'Actions', dataIndex: 'actions' },
+  ];
+
+  data = [
+    {
+      name: 'Salary',
+      amount: '₹1200',
+      category: 'earnings',
+      notes: 'The quick brown fox jumps over the lazy dog.',
+      tags: 'Main Income',
+    },
+    {
+      name: 'Freelance',
+      amount: '₹1200',
+      category: 'earnings',
+      tags: 'Side Income',
+    },
+    { name: 'Rent', amount: '₹1200', category: 'spends', tags: 'Rent' },
+    { name: 'Groceries', amount: '₹1200', category: 'spends', tags: 'Food' },
+    { name: 'Savings', amount: '₹1200', category: 'savings', tags: 'Gold' },
+  ];
 
   tagOptions = [
     'Food',
