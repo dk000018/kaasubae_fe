@@ -24,31 +24,41 @@ export class AutomationsComponent {
   ];
 
   data = [
-    { name: 'Salary', amount: '₹50,000', category: 'earnings', date: '1st' },
+    {
+      name: 'Salary',
+      amount: '₹50,000',
+      category: 'earnings',
+      date: '1st of every Month', 
+    },
     {
       name: 'Freelance Project',
       amount: '₹15,000',
       category: 'earnings',
-      date: '10th',
+      date: '10th of every Month',
     },
-    { name: 'Groceries', amount: '₹5,000', category: 'spends', date: '5th' },
+    {
+      name: 'Groceries',
+      amount: '₹5,000',
+      category: 'spends',
+      date: '5th of every Month',
+    },
     {
       name: 'Dining Out',
       amount: '₹2,500',
       category: 'spends',
-      date: '15th',
+      date: '15th of every Month',
     },
     {
       name: 'Index Fund SIP',
       amount: '₹3,000',
       category: 'savings',
-      date: '20th',
+      date: '20th of every Month',
     },
     {
       name: 'Emergency Fund',
       amount: '₹5,000',
       category: 'savings',
-      date: '25th',
+      date: '25th of every Month',
     },
   ];
 

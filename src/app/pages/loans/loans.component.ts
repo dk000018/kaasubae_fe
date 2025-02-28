@@ -1,9 +1,16 @@
 import { Component } from '@angular/core';
 import { TableComponent } from '../../components/ui/table/table.component';
+import { ModalComponent } from '../../components/ui/modal/modal.component';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-loans',
-  imports: [TableComponent],
+  imports: [TableComponent, ModalComponent, ReactiveFormsModule],
   templateUrl: './loans.component.html',
 })
 export class LoansComponent {
@@ -113,4 +120,46 @@ export class LoansComponent {
       remainingBalance: '₹45,86,556',
     },
   ];
+
+  categoryOptions = ['earnings', 'spends', 'savings'];
+
+  formData: FormGroup = new FormGroup({
+    name: new FormControl('', Validators.required),
+    amount: new FormControl(1, [Validators.required, Validators.min(1)]),
+    roi: new FormControl(1, [Validators.required, Validators.min(1)]),
+    startDate: new FormControl('', Validators.required),
+    tenure: new FormControl('', Validators.required),
+  });
+
+  isModalOpen = false;
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+    this.resetForm();
+  }
+
+  resetForm() {
+    this.formData.reset({
+      name: '',
+      amount: 1,
+      startDate: '',
+      tenure: '',
+      roi: '1',
+    });
+  }
+
+  onSubmit() {
+    if (this.formData.invalid) {
+      this.formData.markAllAsTouched();
+      return;
+    }
+
+    console.log('New Loan:', this.formData.value);
+    this.resetForm();
+    this.closeModal();
+  }
 }
