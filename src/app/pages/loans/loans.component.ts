@@ -121,8 +121,6 @@ export class LoansComponent {
     },
   ];
 
-  categoryOptions = ['earnings', 'spends', 'savings'];
-
   formData: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     amount: new FormControl(1, [Validators.required, Validators.min(1)]),
@@ -146,9 +144,9 @@ export class LoansComponent {
     this.formData.reset({
       name: '',
       amount: 1,
+      roi: 1,
       startDate: '',
       tenure: '',
-      roi: '1',
     });
   }
 

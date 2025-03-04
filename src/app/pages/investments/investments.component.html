@@ -1,0 +1,148 @@
+<section class="p-6 space-y-6">
+  <div>
+    <h1 class="text-2xl font-bold">Investments</h1>
+    <p>
+      View and manage all your earnings, spends, and savings here. You can add,
+      edit, or delete transactions to keep your records up to date.
+    </p>
+  </div>
+  <div class="space-y-3">
+    <div class="flex justify-end">
+      <button
+        class="bg-slate-800 text-white px-4 py-1 rounded-md hover:bg-slate-900 cursor-pointer"
+        (click)="openModal()"
+      >
+        Add Investment
+      </button>
+    </div>
+    <app-table [columns]="columns" [data]="data"></app-table>
+  </div>
+</section>
+
+<app-modal [isOpen]="isModalOpen">
+  <form class="space-y-6 px-2" [formGroup]="formData" (ngSubmit)="onSubmit()">
+    <!-- Name Field -->
+    <div>
+      <label class="font-bold">Name</label>
+      <input
+        formControlName="name"
+        type="text"
+        class="w-full mt-1 px-2 py-1 border rounded-md shadow-sm focus:ring focus:ring-slate-200 focus:border-slate-400"
+        placeholder="Enter transaction name"
+        [attr.style]="
+          formData.controls['name'].invalid && formData.controls['name'].touched
+            ? 'border-color: red'
+            : ''
+        "
+      />
+      @if(formData.controls['name'].invalid &&
+      formData.controls['name'].touched){
+      <span class="text-sm text-red-500">Name is required.</span>
+      }
+    </div>
+
+    <!--Amount Field-->
+    <div>
+      <label class="font-bold">Amount</label>
+      <input
+        formControlName="amount"
+        type="number"
+        class="w-full mt-1 px-2 py-1 border rounded-md shadow-sm focus:ring focus:ring-slate-200 focus:border-slate-400"
+        placeholder="Enter amount"
+        [attr.style]="
+          formData.controls['amount'].invalid &&
+          formData.controls['amount'].touched
+            ? 'border-color: red'
+            : ''
+        "
+      />
+      @if(formData.controls['amount'].invalid &&
+      formData.controls['amount'].touched){
+      <span class="text-sm text-red-500">Amount should be greater than 1</span>
+      }
+    </div>
+
+    <!-- ERR Field -->
+    <div>
+      <label class="font-bold">Expected Rate of Returns (%)</label>
+      <input
+        formControlName="err"
+        type="number"
+        class="w-full mt-1 px-2 py-1 border rounded-md shadow-sm focus:ring focus:ring-slate-200 focus:border-slate-400"
+        placeholder="Enter interest rate"
+        [attr.style]="
+          formData.controls['err'].invalid && formData.controls['err'].touched
+            ? 'border-color: red'
+            : ''
+        "
+      />
+      @if(formData.controls['err'].invalid && formData.controls['err'].touched){
+      <span class="text-sm text-red-500"
+        >Rate of Interest should be greater than 1%</span
+      >
+      }
+    </div>
+
+    <!-- Start Date (Date Picker) -->
+    <div>
+      <label class="font-bold">Start Date</label>
+      <input
+        formControlName="startDate"
+        type="date"
+        class="w-full mt-1 px-2 py-1 border rounded-md shadow-sm focus:ring focus:ring-slate-200 focus:border-slate-400"
+        [attr.style]="
+          formData.controls['startDate'].invalid &&
+          formData.controls['startDate'].touched
+            ? 'border-color: red'
+            : ''
+        "
+      />
+      @if(formData.controls['startDate'].invalid &&
+      formData.controls['startDate'].touched){
+      <span class="text-sm text-red-500">Start date is required.</span>
+      }
+    </div>
+
+    <!-- Frequency Dropdown -->
+    <div class="flex flex-col">
+      <label class="font-bold">Frequency</label>
+
+      <select
+        formControlName="frequency"
+        [attr.style]="
+          formData.controls['frequency'].invalid &&
+          formData.controls['frequency'].touched
+            ? 'border-color: red'
+            : ''
+        "
+        class="w-1/2 mt-1 py-1 border rounded-md"
+      >
+        <option value="" disabled selected>Select a Frequency</option>
+        @for (tag of frequencyOptions; track tag) {
+        <option [value]="tag">{{ tag }}</option>
+        }
+      </select>
+
+      @if(formData.controls['frequency'].invalid &&
+      formData.controls['frequency'].touched){
+      <span class="text-sm text-red-500">Frequency is required.</span>
+      }
+    </div>
+
+    <div class="flex items-center justify-end space-x-3">
+      <button
+        type="button"
+        class="border border-slate-300 px-2 py-1 rounded-md cursor-pointer"
+        (click)="closeModal()"
+      >
+        Cancel
+      </button>
+      <button
+        type="submit"
+        class="bg-green-700 text-white px-4 py-1 rounded-md cursor-pointer"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</app-modal>

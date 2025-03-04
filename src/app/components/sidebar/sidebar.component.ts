@@ -13,7 +13,7 @@ export class SidebarComponent {
     { name: 'Automations', path: 'automations' },
     { name: 'Loans', path: 'loans' },
     { name: 'Investments', path: 'investments' },
-    { name: 'Analytics', path: 'analytics' },
+    // { name: 'Analytics', path: 'analytics' },
     { name: 'Settings', path: 'settings' },
     { name: 'Help', path: 'help' },
   ];
